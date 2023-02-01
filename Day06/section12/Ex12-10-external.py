@@ -20,6 +20,7 @@ b = np.array([4, 5, 6])
 
 # 각 요소 더하기
 c = a + b
+print(c)
 c = np.add(a, b)
 print(c)
 
