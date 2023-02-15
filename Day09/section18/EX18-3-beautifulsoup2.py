@@ -2,14 +2,18 @@ import requests
 from bs4 import BeautifulSoup
 
 url = 'https://news.naver.com/main/ranking/popularDay.naver'
-param = {}
-response = requests.get(url, params=param)
+headers = {}
+response = requests.get(url, headers=headers)
 html = response.text
-print(html)
+soup = BeautifulSoup(html, 'html.parser')
 
-# soup = BeautifulSoup(html, 'html.parser')
-#
-# review_list = soup.find_all('div', class_='score_reple')
-#
-# for review in review_list:
-#     print(review.find('p').text.strip())
+review_list = soup.find_all('div', class_='list_content')
+
+news_in = []
+for result in result_list:
+    news_in.append(result.text.strip())
+
+print(news_in)
+
+for rank in news_in:
+    print(rank)
